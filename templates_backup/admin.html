@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>🔧 Site Administration</h1>
+    <p>Basic admin interface - functionality can be expanded as needed.</p>
+    
+    <div class="admin-sections">
+        <div class="admin-card">
+            <h3>📄 Pages</h3>
+            <p>{{ pages|length }} pages in the system</p>
+        </div>
+        
+        <div class="admin-card">
+            <h3>🏪 Retailers</h3>
+            <p>{{ retailers|length }} retailers configured</p>
+        </div>
+        
+        <div class="admin-card">
+            <h3>⚙️ Settings</h3>
+            <p>{{ settings|length }} site settings</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.admin-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.admin-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--primary-orange, #FF6B35);
+}
+
+.admin-card h3 {
+    color: var(--primary-blue, #004B87);
+    margin-bottom: 1rem;
+}
+</style>
+{% endblock %}

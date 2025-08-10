@@ -1,0 +1,3 @@
+PLACEHOLDER: RESTAURANT IMAGE - Bruges Waffles menu
+Replace this file with: bruges-menu.jpg
+Extract from: https://www.freaknfries.com

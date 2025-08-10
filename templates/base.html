@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ site_settings.company_name }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ site_settings.tagline }}{% endblock %}">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="{% block og_title %}{{ site_settings.company_name }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ site_settings.tagline }}{% endblock %}">
+    <meta property="og:url" content="https://www.freaknfries.com{{ request.path }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logos/freak-n-fries-logo.png') }}" type="image/png">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="company-name">{{ site_settings.company_name }}</h1>
+            </div>
+            <div class="header-center">
+                <img src="{{ url_for('static', filename='images/products/dutch-dawg-hero.jpg') }}" 
+                     alt="Dutch Dawg Products" 
+                     class="header-product-image">
+            </div>
+            <nav class="header-right">
+                <ul class="main-nav">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('where_to_buy') }}">Where to Buy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📞 {{ site_settings.phone }}</p>
+                <p>✉️ {{ site_settings.email }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <p>{{ site_settings.product_name }}</p>
+                <p>{{ site_settings.tagline }}</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 {{ site_settings.company_name }}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

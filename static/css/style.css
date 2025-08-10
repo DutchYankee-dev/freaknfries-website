@@ -1,0 +1,529 @@
+/* Freak-n-Fries Styles - Direct Header Image */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles - Direct Image, No Background Wrapper */
+.main-header {
+    background: #004B87;
+    color: white;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 2rem;
+    height: 100%;
+}
+
+.header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.company-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Direct image - no background wrapper */
+.header-product-image {
+    height: 75px;
+    width: auto;
+    max-width: 450px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 1.5rem;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255,107,53,0.8);
+    transform: translateY(-1px);
+}
+
+/* Hero Section - Clean Layout with Only Logo */
+.hero {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFA500 50%, #FFD700 100%);
+    min-height: 400px;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    min-height: 350px;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.logo-section:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+.tagline-section {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.main-tagline {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.sub-tagline {
+    font-size: 1.3rem;
+    font-style: italic;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Empty space for future content */
+}
+
+/* Content Sections */
+.content-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+}
+
+.content-text h3 {
+    color: #FF6B35;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.product-features {
+    list-style: none;
+    margin: 2rem 0;
+    display: inline-block;
+    text-align: left;
+}
+
+.product-features li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.product-features li::before {
+    content: "🌟";
+    position: absolute;
+    left: 0;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background: linear-gradient(135deg, #004B87, #FF6B35);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.testimonial-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-content blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.testimonial-content cite {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #FF6B35;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #E55A2B;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.main-footer {
+    background: #333;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-section h4 {
+    color: #FF6B35;
+    margin-bottom: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header {
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    .header-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .header-left,
+    .header-center,
+    .header-right {
+        justify-content: center;
+    }
+    
+    .main-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .main-nav a {
+        font-size: 1.3rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .company-name {
+        font-size: 1.3rem;
+    }
+    
+    .header-product-image {
+        height: 55px;
+        max-width: 350px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .main-tagline {
+        font-size: 2rem;
+    }
+    
+    .sub-tagline {
+        font-size: 1.5rem;
+    }
+    
+    .hero-logo {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 300px;
+        padding: 2rem 0;
+    }
+    
+    .main-tagline {
+        font-size: 1.5rem;
+    }
+    
+    .sub-tagline {
+        font-size: 1.3rem;
+    }
+    
+    .company-name {
+        font-size: 1.2rem;
+    }
+    
+    .header-product-image {
+        height: 45px;
+        max-width: 280px;
+    }
+    
+    .main-nav a {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+
+/* Retailer Pages Styling */
+.retailers-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.retailers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.retailer-category h3 {
+    color: #FF6B35;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #FF6B35;
+}
+
+.retailer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.retailer-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.retailer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-color: #FF6B35;
+}
+
+.retailer-card h4 {
+    color: #004B87;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.retailer-card .location {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.retailer-card a {
+    color: #FF6B35;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.retailer-card a:hover {
+    text-decoration: underline;
+}
+
+.wholesale-info {
+    background: linear-gradient(135deg, #004B87, #FF6B35);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.wholesale-info h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.wholesale-info a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.wholesale-info a:hover {
+    text-decoration: underline;
+}
+
+.about-details {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.about-details h4 {
+    color: #FF6B35;
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid #FF6B35;
+}
+
+.contact-info a {
+    color: #FF6B35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design for Retailer Pages */
+@media (max-width: 768px) {
+    .retailers-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .retailer-card {
+        padding: 1rem;
+    }
+    
+    .wholesale-info {
+        padding: 1.5rem;
+    }
+}

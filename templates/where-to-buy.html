@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+
+{% block title %}Where to Buy {{ site_settings.product_name }} - {{ site_settings.company_name }}{% endblock %}
+
+{% block meta_description %}Find Dutch Dawg® frikandel at retailers and restaurants across the US. Available online and at select locations.{% endblock %}
+
+{% block content %}
+<!-- Hero Section - COMPACT VERSION -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-box">
+                    <img src="{{ url_for('static', filename='images/logos/freak-n-fries-logo.png') }}" 
+                         alt="{{ site_settings.company_name }}" 
+                         class="logo-image">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>Where to Buy {{ site_settings.product_name }}</h2>
+                <p>Find authentic Dutch frikandel at these trusted retailers</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Where to Buy Content -->
+<section class="retailers-section">
+    <div class="container">
+        
+        <!-- Online Retailers -->
+        {% if online_retailers %}
+        <div class="retailer-category">
+            <h2>🛒 Online Retailers</h2>
+            <div class="retailer-grid">
+                {% for retailer in online_retailers %}
+                <div class="retailer-card">
+                    <h3>{{ retailer.name }}</h3>
+                    
+                    <!-- Special link for Vander Veen's The Dutch Store -->
+                    {% if retailer.name == "Vander Veen's The Dutch Store" %}
+                    <div class="retailer-website-link">
+                        <a href="https://www.thedutchstore.com" target="_blank" rel="noopener" class="main-website-button">Visit www.thedutchstore.com</a>
+                    </div>
+                    {% endif %}
+                    
+                    {% if retailer.description %}
+                    <p class="retailer-description">{{ retailer.description }}</p>
+                    {% endif %}
+                    <div class="retailer-contact">
+                        {% if retailer.website %}
+                        <p><strong>Website:</strong> <a href="{{ retailer.website }}" target="_blank" rel="noopener">{{ retailer.website.replace('https://', '').replace('http://', '') }}</a></p>
+                        {% endif %}
+                        {% if retailer.phone %}
+                        <p><strong>Phone:</strong> <a href="tel:{{ retailer.phone.replace(' ', '').replace('-', '') }}">{{ retailer.phone }}</a></p>
+                        {% endif %}
+                        {% if retailer.email %}
+                        <p><strong>Email:</strong> <a href="mailto:{{ retailer.email }}">{{ retailer.email }}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Restaurants -->
+        {% if restaurants %}
+        <div class="retailer-category">
+            <h2>🍽️ Restaurants</h2>
+            
+            <!-- Special full-width section for Bruges Waffles & Frites -->
+            {% for restaurant in restaurants %}
+                {% if restaurant.name == "Bruges Waffles & Frites" %}
+                <div class="retailer-card bruges-featured">
+                    <h3>{{ restaurant.name }}</h3>
+                    
+                    <div style="padding: 10px; max-width: 100%; overflow: hidden;">
+                        <video style="width: 100%; max-width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; border-radius: 8px;" controls autoplay muted loop preload="metadata">
+                            <source src="https://static.spotapps.co/website_videos/Bruges_Belgian_Bistro_Edited_Video_2_Vimeo720p30.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    {% if restaurant.description %}
+                    <p class="retailer-description">{{ restaurant.description }}</p>
+                    {% endif %}
+                    <div class="retailer-contact">
+                        {% if restaurant.address %}
+                        <p><strong>Location:</strong> {{ restaurant.address }}</p>
+                        {% endif %}
+                        {% if restaurant.website %}
+                        <p><strong>Website:</strong> <a href="{{ restaurant.website }}" target="_blank" rel="noopener">{{ restaurant.website.replace('https://', '').replace('http://', '') }}</a></p>
+                        {% endif %}
+                        {% if restaurant.phone %}
+                        <p><strong>Phone:</strong> <a href="tel:{{ restaurant.phone.replace(' ', '').replace('-', '') }}">{{ restaurant.phone }}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+            <!-- Other restaurants in grid below -->
+            <div class="retailer-grid">
+                {% for restaurant in restaurants %}
+                    {% if restaurant.name != "Bruges Waffles & Frites" %}
+                    <div class="retailer-card">
+                        <h3>{{ restaurant.name }}</h3>
+                        {% if restaurant.description %}
+                        <p class="retailer-description">{{ restaurant.description }}</p>
+                        {% endif %}
+                        <div class="retailer-contact">
+                            {% if restaurant.address %}
+                            <p><strong>Location:</strong> {{ restaurant.address }}</p>
+                            {% endif %}
+                            {% if restaurant.website %}
+                            <p><strong>Website:</strong> <a href="{{ restaurant.website }}" target="_blank" rel="noopener">{{ restaurant.website.replace('https://', '').replace('http://', '') }}</a></p>
+                            {% endif %}
+                            {% if restaurant.phone %}
+                            <p><strong>Phone:</strong> <a href="tel:{{ restaurant.phone.replace(' ', '').replace('-', '') }}">{{ restaurant.phone }}</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Wholesale Information -->
+        <div class="wholesale-section">
+            <div class="wholesale-card">
+                <h2>🏪 Wholesale Opportunities</h2>
+                <p>Interested in carrying Dutch Dawg® at your establishment?</p>
+                <p><strong>Contact us for wholesale pricing and availability:</strong></p>
+                <div class="wholesale-contact">
+                    <p><strong>Email:</strong> <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:{{ site_settings.phone.replace(' ', '') }}">{{ site_settings.phone }}</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* FORCE blue gradient on entire page - highest priority */
+html, body {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+    background-attachment: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+}
+
+/* Override any container backgrounds */
+.container, main, section {
+    background: transparent !important;
+}
+
+/* TRULY MINIMAL Hero section - KEEP the orange gradient */
+.hero-section {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD700 100%) !important;  /* Keep orange gradient */
+    padding: 0.25rem 0;  /* MINIMAL orange strip - like bottom image */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;  /* Restored to original size */
+    align-items: center;
+    max-width: 1600px;  /* Increased from 1200px */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;  /* Restored to original large size */
+    border-radius: 12px;  /* Restored to original */
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  /* Restored to original */
+    text-align: center;
+    border: 3px solid #FFD700;  /* Restored to original */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;  /* Restored to original size */
+}
+
+.logo-image {
+    max-width: 200px;  /* Restored to original large size */
+    max-height: 120px;  /* Restored to original large size */
+    width: auto;
+    height: auto;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h2 {
+    font-size: 3rem;  /* Restored to original large size */
+    font-weight: bold;
+    margin: 0 0 1rem 0;  /* Restored to original */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text p {
+    font-size: 1.3rem;  /* Restored to original large size */
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Where to Buy page specific styles */
+.retailers-section {
+    padding: 3rem 0;
+    background: #f8f9fa;
+}
+
+.retailer-category {
+    margin-bottom: 3rem;
+}
+
+.retailer-category h2 {
+    color: #FF6B35;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.retailer-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.retailer-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.retailer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.retailer-card h3 {
+    color: #FF6B35;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.retailer-description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-size: 2.0rem;  /* Added - doubled base size */
+}
+
+.retailer-contact p {
+    margin: 0.5rem 0;
+    font-size: 1.9rem;  /* Doubled from 0.95rem */
+}
+
+.retailer-contact a {
+    color: #FF6B35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.retailer-contact a:hover {
+    text-decoration: underline;
+}
+
+.wholesale-section {
+    margin-top: 3rem;
+}
+
+.wholesale-card {
+    background: linear-gradient(135deg, #FF6B35, #FFD700);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.wholesale-card h2 {
+    margin: 0 0 1rem 0;
+    color: white;
+}
+
+.wholesale-card p {
+    margin: 0.75rem 0;
+    font-size: 1.1rem;
+}
+
+.wholesale-contact {
+    margin-top: 1rem;
+}
+
+.wholesale-contact a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.wholesale-contact a:hover {
+    color: #f0f0f0;
+}
+
+/* Responsive grid */
+@media (min-width: 768px) {
+    .retailer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 0.1rem 0;  /* Extremely thin strip on mobile */
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;  /* Restored spacing */
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h2 {
+        font-size: 2rem;  /* Larger than before */
+    }
+    
+    .hero-text p {
+        font-size: 1.1rem;  /* Restored size */
+    }
+    
+    .logo-box {
+        transform: rotate(-2deg);
+        padding: 1.5rem;  /* Larger than before */
+        min-height: 120px;  /* Larger than before */
+    }
+    
+    .logo-image {
+        max-width: 160px;  /* Larger than before */
+        max-height: 100px;  /* Larger than before */
+    }
+    
+    .retailers-section {
+        padding: 2rem 1rem;
+    }
+    
+    .retailer-category h2 {
+        font-size: 1.5rem;
+    }
+    
+    .wholesale-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+{% endblock %}

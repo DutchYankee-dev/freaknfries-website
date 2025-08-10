@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ site_settings.company_name }}{% endblock %}
+{% block meta_description %}{{ page.meta_description }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="page-header">
+        <h1>About {{ site_settings.product_name }}</h1>
+        <p class="lead">Bringing authentic Dutch frikandel to America</p>
+    </section>
+
+    <div class="about-content">
+        <section class="product-story">
+            <h2>Our Story</h2>
+            <p>Introducing the "{{ site_settings.product_name }}" frikandel, bringing the Dutch frikandel experience to US shores.</p>
+            
+            <p>The Dutch Dawg is made from scratch using pure pork, beef and chicken. Customers agree that the Dutch Dawg is the closest you will get to the frikandel (or better!), this side of the Atlantic.</p>
+            
+            <p>If you like the "Frikandel Special", visit Vander Veen's <a href="http://www.thedutchstore.com" target="_blank" rel="noopener">www.thedutchstore.com</a> for the various condiments such as frites sauce, curry ketchup and many more Dutch delights.</p>
+            
+            <p>For wholesale orders, please contact us at <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
+        </section>
+    </div>
+</div>
+{% endblock %}

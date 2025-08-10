@@ -1,0 +1,3 @@
+PLACEHOLDER: ICON - Star rating icon
+Replace this file with: star.png
+Extract from: https://www.freaknfries.com

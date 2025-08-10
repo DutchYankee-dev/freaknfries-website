@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ site_settings.company_name }}{% endblock %}
+{% block meta_description %}{{ page.meta_description }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="page-header">
+        <h1>Where to Buy {{ site_settings.product_name }}</h1>
+        <p class="lead">Find Dutch Dawg® frikandel at these retailers and restaurants</p>
+    </section>
+
+    <div class="retailers-content">
+        <section class="online-retailers-section">
+            <h2>🛒 Online Retailers</h2>
+            <p>Order {{ site_settings.product_name }} online and have it shipped directly to you:</p>
+            
+            <div class="retailer-list">
+                {% for retailer in online_retailers %}
+                <div class="retailer-card">
+                    <h4>{{ retailer.name }}</h4>
+                    {% if retailer.location %}
+                        <p class="retailer-location">📍 {{ retailer.location }}</p>
+                    {% endif %}
+                    
+                    <div class="retailer-links">
+                        {% if retailer.url %}
+                            <a href="{{ retailer.url }}" target="_blank" rel="noopener">Visit Website</a>
+                        {% endif %}
+                        {% if retailer.facebook_url %}
+                            <a href="{{ retailer.facebook_url }}" target="_blank" rel="noopener">Facebook</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="restaurants-section">
+            <h2>🍽️ Restaurants & Food Service</h2>
+            <p>Enjoy {{ site_settings.product_name }} prepared by these excellent establishments:</p>
+            
+            <div class="retailer-list">
+                {% for restaurant in restaurants %}
+                <div class="retailer-card">
+                    <h4>{{ restaurant.name }}</h4>
+                    {% if restaurant.location %}
+                        <p class="retailer-location">📍 {{ restaurant.location }}</p>
+                    {% endif %}
+                    
+                    <div class="retailer-links">
+                        {% if restaurant.url %}
+                            <a href="{{ restaurant.url }}" target="_blank" rel="noopener">Visit Website</a>
+                        {% endif %}
+                        {% if restaurant.facebook_url %}
+                            <a href="{{ restaurant.facebook_url }}" target="_blank" rel="noopener">Facebook</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="wholesale-section">
+            <div class="wholesale-info">
+                <h2>🏪 Wholesale Orders</h2>
+                <p>For wholesale pricing (> 25 cases), contact <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

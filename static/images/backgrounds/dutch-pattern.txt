@@ -1,0 +1,3 @@
+PLACEHOLDER: BACKGROUND - Dutch-themed pattern
+Replace this file with: dutch-pattern.jpg
+Extract from: https://www.freaknfries.com

@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}About Dutch Dawg® - {{ site_settings.company_name }}{% endblock %}
+
+{% block meta_description %}Learn about Dutch Dawg® frikandel - bringing the authentic Dutch frikandel experience to US shores. Made from scratch using pure pork, beef and chicken.{% endblock %}
+
+{% block content %}
+<!-- Hero Section - COMPACT VERSION -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-box">
+                    <img src="{{ url_for('static', filename='images/logos/freak-n-fries-logo.png') }}" 
+                         alt="{{ site_settings.company_name }}" 
+                         class="logo-image">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>About {{ site_settings.product_name }}</h2>
+                <p>Learn about the authentic Dutch frikandel experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <h2>Introducing the "Dutch Dawg®" frikandel</h2>
+            <p class="intro-text">Bringing the Dutch frikandel experience to US shores.</p>
+            
+            <div class="product-description">
+                <p>The Dutch Dawg is made from scratch using pure pork, beef and chicken. Customers agree that the Dutch Dawg is the closest you will get to the frikandel (or better!), this side of the Atlantic.</p>
+                
+                <p>If you like the "Frikandel Special", visit Vander Veen's <a href="https://www.thedutchstore.com" target="_blank" rel="noopener">www.thedutchstore.com</a> for the various condiments such as frites sauce, curry ketchup and many more Dutch delights.</p>
+            </div>
+            
+            <div class="info-cards">
+                <div class="info-card wholesale-card">
+                    <h3>🏪 Wholesale Orders</h3>
+                    <p><strong>For wholesale orders, please contact us at <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></strong></p>
+                </div>
+                
+                <div class="info-card contact-card">
+                    <h3>📞 Contact Information</h3>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong> <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:{{ site_settings.phone.replace(' ', '') }}">{{ site_settings.phone }}</a></p>
+                        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/freaknfries" target="_blank" rel="noopener">www.facebook.com/freaknfries</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* FORCE blue gradient on entire page - highest priority */
+html, body {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+    background-attachment: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+}
+
+/* Override any container backgrounds */
+.container, main, section {
+    background: transparent !important;
+}
+
+/* TRULY MINIMAL Hero section - KEEP the orange gradient */
+.hero-section {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD700 100%) !important;  /* Keep orange gradient */
+    padding: 0.25rem 0;  /* MINIMAL orange strip - like bottom image */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;  /* Restored to original size */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;  /* Restored to original large size */
+    border-radius: 12px;  /* Restored to original */
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  /* Restored to original */
+    text-align: center;
+    border: 3px solid #FFD700;  /* Restored to original */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;  /* Restored to original size */
+}
+
+.logo-image {
+    max-width: 200px;  /* Restored to original large size */
+    max-height: 120px;  /* Restored to original large size */
+    width: auto;
+    height: auto;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h2 {
+    font-size: 3rem;  /* Restored to original large size */
+    font-weight: bold;
+    margin: 0 0 1rem 0;  /* Restored to original */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text p {
+    font-size: 1.3rem;  /* Restored to original large size */
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* About page specific styles */
+.about-section {
+    padding: 3rem 0;
+    background: #f8f9fa;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.about-content h2 {
+    color: #FF6B35;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 2.4rem;  /* Doubled from 1.2rem */
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.product-description {
+    margin-bottom: 2rem;
+}
+
+.product-description p {
+    font-size: 2.2rem;  /* Doubled from 1.1rem */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.product-description a {
+    color: #FF6B35 !important;  /* Orange color to stand out on white background */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.product-description a:hover {
+    color: #e55a2b !important;  /* Darker orange on hover */
+    text-decoration: underline;
+}
+
+.info-cards {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #FF6B35, #FFD700);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.info-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.info-card p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.info-card a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.info-card a:hover {
+    color: #f0f0f0;
+}
+
+.contact-details p {
+    margin: 0.75rem 0;
+}
+
+/* Mobile responsive */
+@media (min-width: 768px) {
+    .info-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 0.1rem 0;  /* Extremely thin strip on mobile */
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;  /* Restored spacing */
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h2 {
+        font-size: 2rem;  /* Larger than before */
+    }
+    
+    .hero-text p {
+        font-size: 1.1rem;  /* Restored size */
+    }
+    
+    .logo-box {
+        transform: rotate(-2deg);
+        padding: 1.5rem;  /* Larger than before */
+        min-height: 120px;  /* Larger than before */
+    }
+    
+    .logo-image {
+        max-width: 160px;  /* Larger than before */
+        max-height: 100px;  /* Larger than before */
+    }
+    
+    .about-content {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+    
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
+    }
+}
+</style>
+{% endblock %}

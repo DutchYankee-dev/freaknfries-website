@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site_settings.company_name }} - {{ site_settings.tagline }}{% endblock %}
+
+{% block meta_description %}{{ site_settings.tagline }}. Discover Dutch Dawg® - the authentic Dutch frikandel experience in the US.{% endblock %}
+
+{% block content %}
+<!-- Hero Section - COMPACT VERSION -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-box">
+                    <img src="{{ url_for('static', filename='images/logos/freak-n-fries-logo.png') }}" 
+                         alt="{{ site_settings.company_name }}" 
+                         class="logo-image">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>Home of the Freakandel®</h2>
+                <p>Inspired by the Dutch frikandel</p>
+            </div>
+            <div class="hero-video">
+                <div class="hero-video-card">
+                    <h4>Bruges Waffles & Frites</h4>
+                    <div style="padding: 10px; max-width: 100%; overflow: hidden; flex: 1; display: flex; justify-content: center;">
+                        <video style="width: auto; height: 320px; object-fit: contain; border-radius: 8px;" controls autoplay muted loop preload="metadata">
+                            <source src="https://static.spotapps.co/website_videos/Bruges_Belgian_Bistro_Edited_Video_2_Vimeo720p30.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="main-content">
+    <div class="container">
+        
+        <!-- Product Introduction -->
+        <div class="product-intro">
+            <h2>Discover {{ site_settings.product_name }}</h2>
+            <p class="intro-text">The authentic Dutch frikandel experience, now available in the US</p>
+            
+            <div class="product-features">
+                <div class="feature">
+                    <h3>🥩 Premium Ingredients</h3>
+                    <p>Made from scratch using pure pork, beef and chicken</p>
+                </div>
+                <div class="feature">
+                    <h3>🇳🇱 Authentic Dutch Recipe</h3>
+                    <p>Traditional frikandel recipe brought to American shores</p>
+                </div>
+                <div class="feature">
+                    <h3>🏪 Available Nationwide</h3>
+                    <p>Find Dutch Dawg® at select retailers and restaurants</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Section -->
+        {% if testimonial %}
+        <div class="testimonial-section">
+            <div class="testimonial-card">
+                <blockquote>
+                    <p>"{{ testimonial.quote }}"</p>
+                    <footer>
+                        <strong>{{ testimonial.author }}</strong>
+                        {% if testimonial.source %}
+                        <span class="source">{{ testimonial.source }}</span>
+                        {% endif %}
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <div class="cta-card">
+                <h2>Ready to Try Dutch Dawg®?</h2>
+                <p>Find a retailer near you or contact us for wholesale opportunities</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('where_to_buy') }}" class="cta-button primary">Find Retailers</a>
+                    <a href="mailto:{{ site_settings.email }}" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* TRULY MINIMAL Hero section - TINY orange strip like bottom image */
+.hero-section {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD700 100%);
+    padding: 0.25rem 0;  /* MINIMAL orange strip - like bottom image */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;  /* Proportional columns for full width */
+    gap: 4rem;  /* Reasonable gaps */
+    align-items: center; /* Center items within grid */
+    width: 100%; /* Full browser width */
+    margin: 0;
+    padding: 0 2rem;  /* Minimal edge padding */
+    justify-content: space-between;
+}
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;  /* Restored to original large size */
+    border-radius: 12px;  /* Restored to original */
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  /* Restored to original */
+    text-align: center;
+    border: 3px solid #FFD700;  /* Restored to original */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;  /* Restored to original size */
+}
+
+.logo-image {
+    max-width: 200px;  /* Restored to original large size */
+    max-height: 120px;  /* Restored to original large size */
+    width: auto;
+    height: auto;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h2 {
+    font-size: 4rem;  /* Increased from 3rem for more impact */
+    font-weight: bold;
+    margin: 0 0 1rem 0;  /* Restored to original */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;  /* Tighter line height for better spacing */
+}
+
+.hero-text p {
+    font-size: 1.6rem;  /* Increased from 1.3rem */
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Main content styles with blue gradient background */
+.main-content {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);  /* Blue gradient */
+}
+
+.product-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.product-intro h2 {
+    color: white;  /* Changed from #FF6B35 to white */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    font-size: 2.6rem;  /* Doubled from 1.3rem */
+    color: white;  /* Changed from #666 to white */
+    margin-bottom: 2rem;
+}
+
+.product-features {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white for contrast */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);  /* Darker shadow for blue background */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);  /* Light border */
+}
+
+.feature h3 {
+    color: white;  /* Changed from #FF6B35 to white */
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.feature p {
+    color: white;  /* Changed from #666 to white */
+    line-height: 1.6;
+    font-size: 2.2rem;  /* Doubled - was default, now 2.2rem */
+}
+
+.testimonial-section {
+    margin: 3rem 0;
+    background: #f8f9fa;
+    padding: 3rem 0;
+}
+
+.testimonial-card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-card blockquote {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 0;
+    border-left: 4px solid #FF6B35;
+}
+
+.testimonial-card p {
+    font-size: 2.4rem;  /* Doubled from 1.2rem */
+    font-style: italic;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card footer {
+    color: #FF6B35;
+    font-weight: bold;
+}
+
+.source {
+    color: #666;
+    font-weight: normal;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.cta-section {
+    margin-top: 3rem;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #FF6B35, #FFD700);
+    color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cta-card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+}
+
+.cta-card p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background: white;
+    color: #FF6B35;
+}
+
+.cta-button.primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+    background: white;
+    color: #FF6B35;
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+    .product-features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 0.1rem 0;  /* Extremely thin strip on mobile */
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;  /* Restored spacing */
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h2 {
+        font-size: 2rem;  /* Larger than before */
+    }
+    
+    .hero-text p {
+        font-size: 1.1rem;  /* Restored size */
+    }
+    
+    .logo-box {
+        transform: rotate(-2deg);
+        padding: 1.5rem;  /* Larger than before */
+        min-height: 120px;  /* Larger than before */
+    }
+    
+    .logo-image {
+        max-width: 160px;  /* Larger than before */
+        max-height: 100px;  /* Larger than before */
+    }
+    
+    .product-intro h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ settings.company_name }} - {{ settings.tagline }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="logo-section">
+                    <img src="{{ url_for('static', filename='images/logos/freak-n-fries-logo.png') }}" 
+                         alt="Freak-n-Fries Logo" 
+                         class="hero-logo">
+                </div>
+                <div class="tagline-section">
+                    <h1 class="main-tagline">Home of the Freakandel®</h1>
+                    <p class="sub-tagline">Inspired by the Dutch frikandel</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="product-showcase">
+                    <img src="{{ url_for('static', filename='images/products/dutch-dawg-hero.jpg') }}" 
+                         alt="Dutch Dawg® Products" 
+                         class="hero-product-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if home_content %}
+<section class="product-showcase">
+    <div class="showcase-grid">
+        <div class="product-info">
+            <h3>{{ settings.product_name }}</h3>
+            <p>{{ home_content.description }}</p>
+            {% if home_content.features %}
+            <ul class="product-features">
+                {% for feature in home_content.features.split(',') %}
+                <li>{{ feature.strip() }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <a href="{{ url_for('about') }}" class="btn">Learn More</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if testimonial %}
+<section class="testimonial">
+    <div class="testimonial-content">
+        <blockquote>"{{ testimonial.quote }}"</blockquote>
+        <cite>- {{ testimonial.author }}, {{ testimonial.source }}</cite>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
