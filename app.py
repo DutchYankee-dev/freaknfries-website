@@ -18,7 +18,7 @@ app.secret_key = 'freaknfries_secret_key_2025'
 if 'PYTHONANYWHERE_DOMAIN' in os.environ:
     # Production settings for PythonAnywhere
     app.config['DEBUG'] = False
-    DATABASE = '/home/yourusername/freaknfries/data/site.db'  # Update 'yourusername' with your PythonAnywhere username
+    DATABASE = '/home/DutchYankee/freaknfries/data/site.db'  # Update 'yourusername' with your PythonAnywhere username
 else:
     # Development settings (your current setup)
     app.config['DEBUG'] = True

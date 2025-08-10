@@ -17,7 +17,7 @@ import os
 
 # Add your project directory to the Python path
 # Replace 'yourusername' with your actual PythonAnywhere username
-username = 'yourusername'  # CHANGE THIS!
+username = 'DutchYankee'  # CHANGE THIS!
 project_path = f'/home/DutchYankee/freaknfries'
 
 if project_path not in sys.path:
