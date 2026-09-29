@@ -323,9 +323,17 @@
     }
     
     .hero-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);  /* Keep the column from growing wider than the screen */
         gap: 1.5rem;  /* Restored spacing */
         text-align: center;
+        padding: 0 1rem;
+    }
+
+    /* Shrink the Bruges video to fit the phone screen */
+    .hero-video video {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 60vh;
     }
     
     .hero-text {
