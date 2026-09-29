@@ -246,34 +246,6 @@ def where_to_buy():
         print(f"Error in where_to_buy route: {e}")
         return f"Error loading where to buy page: {e}", 500
 
-@app.route('/admin')
-def admin():
-    """Admin page"""
-    try:
-        site_settings = get_site_settings()
-        retailers = get_all_retailers()
-        testimonials = get_testimonials()
-        
-        # Get pages for admin interface
-        conn = get_db_connection()
-        try:
-            pages = conn.execute('SELECT * FROM pages ORDER BY slug').fetchall()
-        except sqlite3.Error as e:
-            print(f"Error getting pages: {e}")
-            pages = []
-        finally:
-            conn.close()
-        
-        return render_template('admin.html',
-                             site_settings=site_settings,
-                             settings=site_settings,
-                             retailers=retailers,
-                             testimonials=testimonials,
-                             pages=pages)
-    except Exception as e:
-        print(f"Error in admin route: {e}")
-        return f"Error loading admin page: {e}", 500
-
 @app.errorhandler(404)
 def not_found(error):
     site_settings = get_site_settings()
@@ -304,8 +276,6 @@ if __name__ == '__main__':
     print("🚀 Starting Freak-n-Fries development server...")
     print(f"🏠 Local access: http://127.0.0.1:5000")
     print(f"🌐 Network access: http://{local_ip}:5000")
-    print(f"⚙️  Admin (local): http://127.0.0.1:5000/admin")
-    print(f"⚙️  Admin (network): http://{local_ip}:5000/admin")
     print("📱 Test on mobile devices using the network address!")
     print("🛑 Press Ctrl+C to stop")
     print(f"🗄️  Database: {DATABASE}")
