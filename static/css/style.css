@@ -291,6 +291,25 @@ body {
     margin-bottom: 1rem;
 }
 
+.facebook-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.facebook-link svg {
+    color: #1877F2;
+    background: white;
+    border-radius: 50%;
+}
+
+.facebook-link:hover span {
+    color: #FF6B35;
+}
+
 .footer-bottom {
     border-top: 1px solid #555;
     margin-top: 2rem;
