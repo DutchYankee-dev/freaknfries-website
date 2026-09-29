@@ -48,8 +48,11 @@
                     <p class="retailer-description">{{ retailer.description }}</p>
                     {% endif %}
                     <div class="retailer-contact">
-                        {% if retailer.website %}
-                        <p><strong>Website:</strong> <a href="{{ retailer.website }}" target="_blank" rel="noopener">{{ retailer.website.replace('https://', '').replace('http://', '') }}</a></p>
+                        {% if retailer.location %}
+                        <p><strong>Location:</strong> {{ retailer.location }}</p>
+                        {% endif %}
+                        {% if retailer.url %}
+                        <p><strong>Website:</strong> <a href="{{ retailer.url }}" target="_blank" rel="noopener">{% if 'facebook.com' in retailer.url %}Facebook page{% else %}{{ retailer.url.replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0] }}{% endif %}</a></p>
                         {% endif %}
                         {% if retailer.phone %}
                         <p><strong>Phone:</strong> <a href="tel:{{ retailer.phone.replace(' ', '').replace('-', '') }}">{{ retailer.phone }}</a></p>
