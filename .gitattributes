@@ -1,0 +1,15 @@
+# Store text files with LF line endings in git and check them out with LF.
+# Keeps Windows edits and the PythonAnywhere (Linux) server consistent.
+* text=auto eol=lf
+
+# Binary files: never touch line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.mp4 binary
+*.db binary
+*.sqlite binary
+*.pdf binary
