@@ -6,6 +6,7 @@ Freak-n-Fries Flask Application - Fixed settings access
 from flask import Flask, render_template, request, redirect, url_for, flash
 import sqlite3
 import os
+from datetime import date
 
 app = Flask(__name__)
 app.secret_key = 'freaknfries_secret_key_2025'
@@ -177,7 +178,8 @@ def inject_global_vars():
     site_settings = get_site_settings()
     return {
         'site_settings': site_settings,
-        'settings': site_settings  # For base.html which uses 'settings'
+        'settings': site_settings,  # For base.html which uses 'settings'
+        'current_year': date.today().year  # For the footer copyright
     }
 
 @app.route('/')
