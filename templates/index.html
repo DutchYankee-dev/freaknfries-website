@@ -38,7 +38,16 @@
 <!-- Main Content -->
 <section class="main-content">
     <div class="container">
-        
+
+        <!-- New Retailer Spotlight -->
+        <div class="new-retailer">
+            <span class="new-badge">NEW RETAILER</span>
+            <h2>Now at Lowlands House</h2>
+            <p>Order {{ site_settings.product_name }} online from Lowlands House. They ship nationwide, year&#8209;round, packed in dry ice so your frikandel arrives frozen.</p>
+            <p class="new-retailer-note">Pickup also available in Alpharetta, GA</p>
+            <a href="https://lowlandshouse.com/shop/frozen-chilled" target="_blank" rel="noopener" class="cta-button primary">Shop Lowlands House</a>
+        </div>
+
         <!-- Product Introduction -->
         <div class="product-intro">
             <h2>Discover {{ site_settings.product_name }}</h2>
@@ -246,6 +255,57 @@
     font-weight: normal;
     display: block;
     margin-top: 0.5rem;
+}
+
+/* New retailer spotlight */
+.new-retailer {
+    background: white;
+    color: #333;
+    border-left: 6px solid #FF6B35;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.new-badge {
+    display: inline-block;
+    background: #FF6B35;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+}
+
+.new-retailer h2 {
+    color: #004B87;
+    font-size: 2rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.new-retailer p {
+    font-size: 1.15rem;
+    max-width: 640px;
+    margin: 0 auto 0.5rem auto;
+}
+
+.new-retailer .new-retailer-note {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.new-retailer .cta-button.primary {
+    background: #FF6B35;
+    color: white;
+}
+
+.new-retailer .cta-button.primary:hover {
+    background: #e55a28;
 }
 
 .cta-section {
