@@ -43,3 +43,10 @@ Thumbs.db
 
 # Don't ignore the build directory (needed for GitHub Pages)
 # build/
+
+# Project notes (not code)
+Notes/
+CLAUDE.md
+memory.md
+To Do.md
+Claude outputs/
