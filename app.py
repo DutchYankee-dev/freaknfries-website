@@ -45,7 +45,7 @@ def get_site_settings():
                     'tagline': settings_row['tagline'] if 'tagline' in settings_row.keys() else 'Home of the Dutch frikandel in the US',
                     'phone': settings_row['phone'] if 'phone' in settings_row.keys() else '440 453 1877',
                     'email': settings_row['email'] if 'email' in settings_row.keys() else 'info@freaknfries.com',
-                    'product_name': settings_row['product_name'] if 'product_name' in settings_row.keys() else 'Dutch Dawg®'
+                    'product_name': settings_row['product_name'] if 'product_name' in settings_row.keys() else 'Dutch Dawg™'
                 }
                 conn.close()
                 return site_settings
@@ -68,7 +68,7 @@ def get_site_settings():
                     'tagline': 'Home of the Dutch frikandel in the US',
                     'phone': '440 453 1877',
                     'email': 'info@freaknfries.com',
-                    'product_name': 'Dutch Dawg®'
+                    'product_name': 'Dutch Dawg™'
                 }
                 
                 for key, default_value in defaults.items():
@@ -87,7 +87,7 @@ def get_site_settings():
             'tagline': 'Home of the Dutch frikandel in the US',
             'phone': '440 453 1877',
             'email': 'info@freaknfries.com',
-            'product_name': 'Dutch Dawg®'
+            'product_name': 'Dutch Dawg™'
         }
         
     except Exception as e:
@@ -98,7 +98,7 @@ def get_site_settings():
             'tagline': 'Home of the Dutch frikandel in the US',
             'phone': '440 453 1877',
             'email': 'info@freaknfries.com',
-            'product_name': 'Dutch Dawg®'
+            'product_name': 'Dutch Dawg™'
         }
     finally:
         if conn:
